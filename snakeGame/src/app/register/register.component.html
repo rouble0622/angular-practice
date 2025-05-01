@@ -1,0 +1,64 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<div class="dummy-container">
+
+  <div class="api-section">    
+    <!-- Python API Section -->
+    <div class="api-block">
+      <div class="login-container">
+        <h2>Register</h2>
+        <!-- <p>This is a sample template that you can use as a starting point for your Angular components.</p> -->
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input 
+              formControlName="email" 
+              type="email" 
+              placeholder="Email"
+              [class.error]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched"
+            />
+            <div class="error-message" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+              Email is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input 
+              formControlName="username" 
+              type="text"
+              placeholder="Username"
+              [class.error]="registerForm.get('username')?.invalid && registerForm.get('username')?.touched"
+            />
+            <div class="error-message" *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+              Username is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input 
+              formControlName="password" 
+              type="password" 
+              placeholder="Password"
+                [class.error]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
+            />
+            <div class="error-message" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+              Password is required
+            </div>
+          </div>          
+
+          <div class="error-message" *ngIf="error">
+            {{ error }}
+          </div>
+
+          <button type="submit" [disabled]="registerForm.invalid || loading">
+            {{ loading ? 'Registering...' : 'Register' }}
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Loading and Error States -->
+    <!-- <div class="status-section">
+      <div class="loading" *ngIf="loading">Loading...</div>
+      <div class="error" *ngIf="error">{{ error }}</div>
+    </div> -->
+  </div>
+</div> 

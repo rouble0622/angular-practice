@@ -1,0 +1,30 @@
+<aside class="sidebar" *ngIf="authService.isAuthenticated()" >
+  <div class="sidebar-header">
+    <h2>Game Controls</h2>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>   
+      <li>
+        <a *ngIf="authService.isAuthenticated()" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <span class="icon">🎮</span>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a *ngIf="authService.isAuthenticated()" routerLink="/game" routerLinkActive="active">
+          <span class="icon">🎮</span>
+          Play Game
+        </a>
+      </li>
+      <li>
+        <a *ngIf="authService.isAuthenticated()" routerLink="/settings" routerLinkActive="active">
+          <span class="icon">⚙️</span>
+          Settings
+        </a>
+      </li>
+      <li *ngIf="authService.isAuthenticated()">
+        <a routerLink="/logout">Logout</a>
+      </li>
+    </ul>
+  </nav>
+</aside>

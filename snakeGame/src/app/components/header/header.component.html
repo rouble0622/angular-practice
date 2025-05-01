@@ -1,0 +1,17 @@
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <a routerLink="/">Snake Game</a>
+    </div>
+    <nav class="nav-menu">
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+        <li *ngIf="authService.isAuthenticated()"><a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Dashboard</a></li>
+        <li *ngIf="authService.isAuthenticated()"><a routerLink="/game" routerLinkActive="active">Play Game</a></li>
+        <li *ngIf="authService.isAuthenticated()"><a routerLink="/logout">Logout</a></li>
+        <li *ngIf="!authService.isAuthenticated()"><a routerLink="/login" routerLinkActive="active">Login</a></li>
+        <li *ngIf="!authService.isAuthenticated()"><a routerLink="/register" routerLinkActive="active">Register</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

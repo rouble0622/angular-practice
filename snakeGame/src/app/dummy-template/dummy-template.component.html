@@ -1,0 +1,38 @@
+<div class="dummy-container">
+  <h1>{{ title }}</h1>
+  <div class="shopping-list-container">
+    <h2>Shopping List</h2>
+    <ul>
+      <li *ngFor="let product of products">{{ product }}<button (click)="removeItem(product)">Remove</button></li>
+    </ul>
+    <div class="add-item">
+      <input [(ngModel)]="newItem" placeholder="Add new item">
+      <button (click)="addItem()">Add</button>      
+    </div>
+  </div>
+  <div class="content-section">
+    <h2>Welcome to the Dummy Template</h2>
+    <p>This is a sample template that you can use as a starting point for your Angular components.</p>
+  </div>
+
+  <div class="api-section">
+    <h3>API Integration</h3>    
+    
+    <!-- Loading and Error States -->
+    <div class="status-section">
+      <div class="loading" *ngIf="loading">Loading...</div>
+      <div class="error" *ngIf="error">{{ error }}</div>
+    </div>
+  </div>
+
+  <div class="list-section">
+    <h3>Sample Items:</h3>
+    <ul>
+      <li *ngFor="let item of items">{{ item }}</li>
+    </ul>
+  </div>
+
+</div> 
+
+
+
